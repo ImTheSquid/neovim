@@ -16,6 +16,12 @@ require("lazy").setup("plugins")
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
 lspconfig.tsserver.setup {}
+lspconfig.typst_lsp.setup{
+	settings = {
+		exportPdf = "onType" -- Choose onType, onSave or never.
+        -- serverPath = "" -- Normally, there is no need to uncomment it.
+	}
+}
 
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -25,7 +31,7 @@ lspconfig.cssls.setup {
   capabilities = capabilities,
 }
 
-require("mason").setup()
+--require("mason").setup()
 -- Treesitter Plugin Setup 
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "rust", "toml" },
@@ -170,4 +176,10 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end
     session_manager.save_current_session()
   end
+})
+
+vim.filetype.add({
+    extension = {
+        typ = 'typst'
+    }
 })

@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  "williamboman/mason.nvim",
+  {"williamboman/mason.nvim", opts = {}},
+  {"williamboman/mason-lspconfig.nvim", opts = {}},
   "neovim/nvim-lspconfig",
   "simrat39/rust-tools.nvim",
   "hrsh7th/nvim-cmp",
