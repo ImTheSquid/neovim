@@ -156,7 +156,7 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup()
 
 -- Line numbers
-vim.cmd("set number")
+vim.cmd("set nu rnu")
 
 -- Tabs
 vim.cmd("set tabstop=4 shiftwidth=4 expandtab")
